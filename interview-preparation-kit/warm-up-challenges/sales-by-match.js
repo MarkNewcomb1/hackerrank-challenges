@@ -1,4 +1,4 @@
-function sockMerchant(n, ar) {
+export const sockMerchant = (n, ar)=> {
     const obj = {};
 
     ar.forEach(function (sock) {
@@ -15,4 +15,4 @@ function sockMerchant(n, ar) {
     return matchingPairs;
 }
 
-sockMerchant(10, [1, 1, 3, 1, 2, 1, 3, 3, 3, 3]);
+// sockMerchant(10, [1, 1, 3, 1, 2, 1, 3, 3, 3, 3]);
