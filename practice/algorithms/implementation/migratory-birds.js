@@ -1,16 +1,19 @@
 function migratoryBirds(arr) {
-    let obj = {};
-    let s = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        obj[arr[i]] = obj[arr[i]] || 0;
-        obj[arr[i]]++;
-    }
-
-    const max = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
-
-    return max;
-
+    const freqObject = arr.reduce((acc, value) => {
+        if (acc[value]) {
+            acc[value]++
+        } else {
+            acc[value] = 1
+        }
+        return acc
+    }, {})
+    const highest = Math.max(...Object.values(freqObject))
+    const types = Object.keys(freqObject)
+    let mostCommon = []
+    types.forEach(type => {
+        if (freqObject[type] === highest) mostCommon.push(type)
+    })
+    return Math.min(...mostCommon)
 }
 
 migratoryBirds([1, 4, 4, 4, 5, 3, 3, 3]);
